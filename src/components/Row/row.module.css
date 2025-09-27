@@ -1,0 +1,10 @@
+.formRow {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.formRow > input {
+    flex: 1;
+}
