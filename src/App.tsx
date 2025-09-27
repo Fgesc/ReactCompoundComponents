@@ -7,7 +7,7 @@ function App() {
 
     const onSubmit = () => {
         console.log('formData', JSON.stringify(formData));
-
+        
     };
 
     return (
