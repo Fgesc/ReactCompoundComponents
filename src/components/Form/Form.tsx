@@ -18,8 +18,15 @@ export const Form = ({ setFormData, children }: FormProps) => {
         setInternalFormData(newData);
     };
 
+    const initializeField = (id: string) => {
+        setInternalFormData(prev => {
+            if (id in prev) return prev; 
+            return { ...prev, [id]: '' };  
+        });
+    };
+
     return (
-        <FormContext.Provider value={{ formData: internalFormData, setFormData: handleChange }}>
+        <FormContext.Provider value={{ formData: internalFormData, setFormData: handleChange, initializeField }}>
             {children}
         </FormContext.Provider>
     );

@@ -6,8 +6,16 @@ function App() {
     const [formData, setFormData] = useState<Record<string, string>>({});
 
     const onSubmit = () => {
-        console.log('formData', JSON.stringify(formData));
-        
+
+        const cleaned = Object.fromEntries(
+            Object.entries(formData).map(([key, value]) => [key, value.trim()])
+        );
+
+        if (!Object.keys(cleaned).length || Object.values(cleaned).some(v => v === '')) {
+            return;
+        }
+
+        console.log('formData', JSON.stringify(cleaned));   
     };
 
     return (
